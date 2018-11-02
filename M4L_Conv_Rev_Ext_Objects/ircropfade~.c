@@ -16,9 +16,9 @@ typedef struct _ircropfade
 
 	// Attributes
 	
-	long read_chan;
-	long write_chan;
-	long resize;
+	t_atom_long read_chan;
+	t_atom_long write_chan;
+	t_atom_long resize;
 	
 	// Bang Outlet
 	
@@ -27,38 +27,38 @@ typedef struct _ircropfade
 } t_ircropfade;
 
 
-void *ircropfade_new ();
-void ircropfade_free (t_ircropfade *x);
-void ircropfade_assist (t_ircropfade *x, void *b, long m, long a, char *s);
+void *ircropfade_new();
+void ircropfade_free(t_ircropfade *x);
+void ircropfade_assist(t_ircropfade *x, void *b, long m, long a, char *s);
 
-void ircropfade_process (t_ircropfade *x, t_symbol *sym, long argc, t_atom *argv);
-void ircropfade_process_internal (t_ircropfade *x, t_symbol *sym, short argc, t_atom *argv);
+void ircropfade_process(t_ircropfade *x, t_symbol *sym, long argc, t_atom *argv);
+void ircropfade_process_internal(t_ircropfade *x, t_symbol *sym, short argc, t_atom *argv);
 
 
 int main (void)
 {
-    this_class = class_new ("ircropfade~",
+    this_class = class_new("ircropfade~",
 							(method) ircropfade_new, 
 							(method)ircropfade_free, 
 							sizeof(t_ircropfade), 
 							0L,
 							0);
 		
-	class_addmethod (this_class, (method)ircropfade_process, "process", A_GIMME, 0L);		
+	class_addmethod(this_class, (method)ircropfade_process, "process", A_GIMME, 0L);
 
-	class_addmethod (this_class, (method)ircropfade_assist, "assist", A_CANT, 0L);
+	class_addmethod(this_class, (method)ircropfade_assist, "assist", A_CANT, 0L);
 	
 	CLASS_STICKY_ATTR(this_class, "category", 0L, "Buffer");
 	
 	CLASS_ATTR_LONG(this_class, "writechan", 0L, t_ircropfade, write_chan);
-	CLASS_ATTR_FILTER_CLIP(this_class, "writechan", 1, 4);
+    CLASS_ATTR_FILTER_MIN(this_class, "writechan", 1);
 	CLASS_ATTR_LABEL(this_class,"writechan", 0L, "Buffer Write Channel");
 	
 	CLASS_ATTR_LONG(this_class, "resize", 0L, t_ircropfade, resize);
 	CLASS_ATTR_STYLE_LABEL(this_class,"resize", 0L, "onoff","Buffer Resize");
 	
-	CLASS_ATTR_LONG(this_class, "readchan", 0, t_ircropfade, read_chan);	
-	CLASS_ATTR_FILTER_CLIP(this_class, "readchan", 1, 4);
+	CLASS_ATTR_LONG(this_class, "readchan", 0, t_ircropfade, read_chan);
+    CLASS_ATTR_FILTER_MIN(this_class, "readchan", 1);
 	CLASS_ATTR_LABEL(this_class,"readchan", 0, "Buffer Read Channel");
 	
 	CLASS_STICKY_ATTR_CLEAR(this_class, "category");
@@ -71,7 +71,7 @@ int main (void)
 }
 
 
-void *ircropfade_new ()
+void *ircropfade_new()
 {
     t_ircropfade *x = (t_ircropfade *)object_alloc (this_class);
 
@@ -90,7 +90,7 @@ void ircropfade_free(t_ircropfade *x)
 }
 
 
-void ircropfade_assist (t_ircropfade *x, void *b, long m, long a, char *s)
+void ircropfade_assist(t_ircropfade *x, void *b, long m, long a, char *s)
 {
 	if (m == ASSIST_INLET)
 		sprintf(s,"Instructions In");
@@ -102,7 +102,7 @@ void ircropfade_assist (t_ircropfade *x, void *b, long m, long a, char *s)
 // Arguments are - target buffer / source buffer / crop 1 (samps) / crop 2 (samps) / fade in start (samps) / fade in length (samps) / fade out end (samps) / fade out length (samps)
 // N.B. the fades are allowed to fall outside of the crop points
 
-void ircropfade_process (t_ircropfade *x, t_symbol *sym, long argc, t_atom *argv)
+void ircropfade_process(t_ircropfade *x, t_symbol *sym, long argc, t_atom *argv)
 {	
 	long i;
 	
@@ -132,7 +132,7 @@ void ircropfade_process (t_ircropfade *x, t_symbol *sym, long argc, t_atom *argv
 }
 
 
-double calculate_fade (double pos, double lo, double fade_recip)
+double calculate_fade(double pos, double lo, double fade_recip)
 {
 	double fade = (pos - lo) * fade_recip;
 	
@@ -143,7 +143,7 @@ double calculate_fade (double pos, double lo, double fade_recip)
 }
 
 
-void ircropfade_process_internal (t_ircropfade *x, t_symbol *sym, short argc, t_atom *argv)
+void ircropfade_process_internal(t_ircropfade *x, t_symbol *sym, short argc, t_atom *argv)
 {
 	// Load arguments
 	
@@ -173,12 +173,14 @@ void ircropfade_process_internal (t_ircropfade *x, t_symbol *sym, short argc, t_
 	AH_SIntPtr full_length = buffer_length(source);
 	AH_SIntPtr final_length;
 	AH_SIntPtr i;
+    
+    t_atom_long read_chan = x->read_chan - 1;
 	
 	double sample_rate = 0;
 				
 	// Check source buffer
 	
-	if (buffer_check((t_object *) x, source))
+	if (buffer_check((t_object *) x, source, read_chan))
 		return;	
 	sample_rate = buffer_sample_rate(source);
 	
@@ -208,7 +210,7 @@ void ircropfade_process_internal (t_ircropfade *x, t_symbol *sym, short argc, t_
 	
 	// Read from buffer
 	
-	buffer_read(source, x->read_chan - 1, (float *) temp1, full_length);
+	buffer_read(source, read_chan, (float *) temp1, full_length);
 
 	// Copy with crops / fades to double precision version
 	

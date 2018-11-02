@@ -17,9 +17,9 @@ typedef struct _irdisplay
 	
 	// Attributes
 	
-	long read_chan;
-	long write_chan;
-	long resize;
+	t_atom_long read_chan;
+	t_atom_long write_chan;
+	t_atom_long resize;
 		
 	// Bang Outlet
 	
@@ -28,43 +28,43 @@ typedef struct _irdisplay
 } t_irdisplay;
 
 
-void *irdisplay_new ();
-void irdisplay_free (t_irdisplay *x);
-void irdisplay_assist (t_irdisplay *x, void *b, long m, long a, char *s);
+void *irdisplay_new();
+void irdisplay_free(t_irdisplay *x);
+void irdisplay_assist(t_irdisplay *x, void *b, long m, long a, char *s);
 
 
-void irdisplay_process (t_irdisplay *x, t_symbol *sym, long argc, t_atom *argv);
-void irdisplay_process_internal (t_irdisplay *x, t_symbol *sym, short argc, t_atom *argv);
+void irdisplay_process(t_irdisplay *x, t_symbol *sym, long argc, t_atom *argv);
+void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_atom *argv);
 
 
 double pow_table[8194];
 
 
-int main (void)
+int main(void)
 {
     long i;
 	
-	this_class = class_new ("irdisplay~",
+	this_class = class_new("irdisplay~",
 							(method) irdisplay_new, 
 							(method)irdisplay_free, 
 							sizeof(t_irdisplay), 
 							0L,
 							0);
 		
-	class_addmethod (this_class, (method)irdisplay_process, "process", A_GIMME, 0L);
-	class_addmethod (this_class, (method)irdisplay_assist, "assist", A_CANT, 0L);
+	class_addmethod(this_class, (method)irdisplay_process, "process", A_GIMME, 0L);
+	class_addmethod(this_class, (method)irdisplay_assist, "assist", A_CANT, 0L);
 	
 	CLASS_STICKY_ATTR(this_class, "category", 0, "Buffer");
 	
 	CLASS_ATTR_LONG(this_class, "writechan", 0, t_irdisplay, write_chan);
-	CLASS_ATTR_FILTER_CLIP(this_class, "writechan", 1, 4);
+    CLASS_ATTR_FILTER_MIN(this_class, "writechan", 1);
 	CLASS_ATTR_LABEL(this_class,"writechan", 0, "Buffer Write Channel");
 	
 	CLASS_ATTR_LONG(this_class, "resize", 0, t_irdisplay, resize);
 	CLASS_ATTR_STYLE_LABEL(this_class,"resize", 0, "onoff","Buffer Resize");
 	
 	CLASS_ATTR_LONG(this_class, "readchan", 0, t_irdisplay, read_chan);	
-	CLASS_ATTR_FILTER_CLIP(this_class, "readchan", 1, 4);
+    CLASS_ATTR_FILTER_MIN(this_class, "readchan", 1);
 	CLASS_ATTR_LABEL(this_class,"readchan", 0, "Buffer Read Channel");
 	
 	CLASS_STICKY_ATTR_CLEAR(this_class, "category");
@@ -76,13 +76,13 @@ int main (void)
 	// Set up static table for fast power approximation
 	
 	for (i = 0; i < 8194; i++)
-		pow_table[i] = copysign(pow(fabs((i - 4096)) / 4096.0, 0.4), i - 4096.0);
+		pow_table[i] = copysign(pow(fabs((i - 4096) / 4096.0), 0.4), i - 4096.0);
 		
 	return 0;
 }
 
 
-void *irdisplay_new ()
+void *irdisplay_new()
 {
     t_irdisplay *x = (t_irdisplay *)object_alloc (this_class);
 
@@ -101,7 +101,7 @@ void irdisplay_free(t_irdisplay *x)
 }
 
 
-void irdisplay_assist (t_irdisplay *x, void *b, long m, long a, char *s)
+void irdisplay_assist(t_irdisplay *x, void *b, long m, long a, char *s)
 {
 	if (m == ASSIST_INLET)
 		sprintf(s,"Instructions In");
@@ -132,13 +132,13 @@ double power_scale(double val)
 
 // Arguments are - target buffer 1 / source buffer 1 / [target buffer 2 / source buffer 2] / [multiplier 1] / [multplier 2]
 
-void irdisplay_process (t_irdisplay *x, t_symbol *sym, long argc, t_atom *argv)
+void irdisplay_process(t_irdisplay *x, t_symbol *sym, long argc, t_atom *argv)
 {	
 	defer(x, (method) irdisplay_process_internal, sym, (short) argc, argv);
 }
 
 
-void irdisplay_process_internal (t_irdisplay *x, t_symbol *sym, short argc, t_atom *argv)
+void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_atom *argv)
 {
 	t_symbol *target1 = 0;
 	t_symbol *target2 = 0;
@@ -204,9 +204,11 @@ void irdisplay_process_internal (t_irdisplay *x, t_symbol *sym, short argc, t_at
 		argc--;
 	}
 
+    t_atom_long read_chan = x->read_chan - 1;
+    
 	// Check source buffer
 	
-	if (buffer_check((t_object *) x, source1) || !source1)
+	if (buffer_check((t_object *) x, source1, read_chan) || !source1)
 		return;	
 	length1 = buffer_length(source1);
 	sample_rate1 = buffer_sample_rate(source1);
@@ -214,7 +216,7 @@ void irdisplay_process_internal (t_irdisplay *x, t_symbol *sym, short argc, t_at
 	
 	if (source2)
 	{
-		if (buffer_check((t_object *) x, source2))
+		if (buffer_check((t_object *) x, source2, read_chan))
 			return;	
 		length2 = buffer_length(source2);
 		sample_rate2 = buffer_sample_rate(source2);
@@ -234,9 +236,9 @@ void irdisplay_process_internal (t_irdisplay *x, t_symbol *sym, short argc, t_at
 	
 	// Read buffers
 	
-	buffer_read(source1, x->read_chan - 1, temp1, length1);
+	buffer_read(source1, read_chan, temp1, length1);
 	if (source2)
-		buffer_read(source2, x->read_chan - 1, temp2, length2);	
+		buffer_read(source2, read_chan, temp2, length2);
 	
 	// Find maximums and calculate scaling
 	
