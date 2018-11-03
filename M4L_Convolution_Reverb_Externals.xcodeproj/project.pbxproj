@@ -71,9 +71,7 @@
 		B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = HIRT_Buffer_Access.c; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.c; sourceTree = "<group>"; };
 		B890395F13CEFB4C0090602F /* irmix~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "irmix~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89EF5DA10EB78D100D86409 /* ibuffer_access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ibuffer_access.c; sourceTree = "<group>"; };
-		B8AE38E41699041D000E00C2 /* AH_Atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Atomic.h; sourceTree = "<group>"; };
 		B8AE38E71699041D000E00C2 /* AH_VectorOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_VectorOps.h; sourceTree = "<group>"; };
-		B8AE38E81699041D000E00C2 /* AH_Win_Complex_Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Win_Complex_Math.h; sourceTree = "<group>"; };
 		B8AE38E91699041D000E00C2 /* AH_Win_Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Win_Math.h; sourceTree = "<group>"; };
 		B8AE38EA1699041D000E00C2 /* ibuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ibuffer.h; sourceTree = "<group>"; };
 		B8AE38EC1699041D000E00C2 /* ibuffer_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ibuffer_access.h; sourceTree = "<group>"; };
@@ -168,10 +166,8 @@
 		B8AE38E31699041D000E00C2 /* M4L Conv Rev Ext Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE38E41699041D000E00C2 /* AH_Atomic.h */,
 				B8BF5244169A17AA00989F66 /* AH_Types.h */,
 				B8AE38E71699041D000E00C2 /* AH_VectorOps.h */,
-				B8AE38E81699041D000E00C2 /* AH_Win_Complex_Math.h */,
 				B8AE38E91699041D000E00C2 /* AH_Win_Math.h */,
 				B8AE38EA1699041D000E00C2 /* ibuffer.h */,
 				B89EF5DA10EB78D100D86409 /* ibuffer_access.c */,
