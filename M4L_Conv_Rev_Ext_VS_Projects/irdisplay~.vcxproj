@@ -68,16 +68,16 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="..\M4L_Conv_Rev_Ext_Debug 32bit.props" />
+    <Import Project="..\Config_M4LCRE_Win_Debug_32bit.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="..\M4L_Conv_Rev_Ext_Debug 64bit.props" />
+    <Import Project="..\Config_M4LCRE_Win_Debug_64bit.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="..\M4L_Conv_Rev_Ext_Release 32bit.props" />
+    <Import Project="..\Config_M4LCRE_Win_Release_32bit.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="..\M4L_Conv_Rev_Ext_Release 64bit.props" />
+    <Import Project="..\Config_M4LCRE_Win_Release_64bit.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
