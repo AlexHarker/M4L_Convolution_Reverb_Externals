@@ -56,14 +56,14 @@ int main(void)
     
     CLASS_STICKY_ATTR(this_class, "category", 0, "Buffer");
     
-    CLASS_ATTR_LONG(this_class, "writechan", 0, t_irdisplay, write_chan);
+    CLASS_ATTR_ATOM_LONG(this_class, "writechan", 0, t_irdisplay, write_chan);
     CLASS_ATTR_FILTER_MIN(this_class, "writechan", 1);
     CLASS_ATTR_LABEL(this_class,"writechan", 0, "Buffer Write Channel");
     
-    CLASS_ATTR_LONG(this_class, "resize", 0, t_irdisplay, resize);
+    CLASS_ATTR_ATOM_LONG(this_class, "resize", 0, t_irdisplay, resize);
     CLASS_ATTR_STYLE_LABEL(this_class,"resize", 0, "onoff","Buffer Resize");
     
-    CLASS_ATTR_LONG(this_class, "readchan", 0, t_irdisplay, read_chan);
+    CLASS_ATTR_ATOM_LONG(this_class, "readchan", 0, t_irdisplay, read_chan);
     CLASS_ATTR_FILTER_MIN(this_class, "readchan", 1);
     CLASS_ATTR_LABEL(this_class,"readchan", 0, "Buffer Read Channel");
     
