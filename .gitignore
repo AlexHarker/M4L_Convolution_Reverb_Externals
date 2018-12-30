@@ -12,6 +12,8 @@ CVS/
 *.suo
 *.user
 *.sln.docstates
+*.db
+*.ipch
 
 # XCode
 
