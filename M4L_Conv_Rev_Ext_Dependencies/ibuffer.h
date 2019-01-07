@@ -11,7 +11,7 @@
 
 
 #ifndef _IBUFFER_
-#define _IBUFFER_ 
+#define _IBUFFER_
 
 
 #include <ext.h>
@@ -30,21 +30,21 @@ typedef struct _ibuffer
 {
     t_pxobject x_obj;
     
-    t_symbol *name;    	    // the current name of this ibuffer~
+    t_symbol *name;            // the current name of this ibuffer~
     
-    void *thebuffer;	    // where the memory starts (including zero padding)
-    void *samples;    	    // where the samples start    
+    void *thebuffer;          // where the memory starts (including zero padding)
+    void *samples;            // where the samples start
     
-    double sr;	    	    // sample rate of ibuffer~
+    double sr;                // sample rate of ibuffer~
     
-    AH_SIntPtr frames;	    // number of frames (N.B. - could be very large under 64bit platforms - hence the pointer sized integer - signed for backwards compatibility)
-    long channels;    	    // number of channels
-    long format;    	    // sample format
+    AH_SIntPtr frames;        // number of frames (N.B. - could be very large under 64bit platforms - hence the pointer sized integer - signed for backwards compatibility)
+    long channels;            // number of channels
+    long format;              // sample format
     
-    t_int32_atomic valid;   // set to 0 when loading / unable to load
-    t_int32_atomic inuse;    // count for num objects currently using this ibuffer~
+    t_int32_atomic valid;     // set to 0 when loading / unable to load
+    t_int32_atomic inuse;     // count for num objects currently using this ibuffer~
     
-    void *bang_out;    	    // bangs on load
+    void *bang_out;           // bangs on load
     
 } t_ibuffer;
 
@@ -54,15 +54,15 @@ typedef struct _ibuffer
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#define MASK_16_BIT    	    0xFFFF0000
-#define MASK_24_BIT    	    0xFFFFFF00
+#define MASK_16_BIT                 0xFFFF0000
+#define MASK_24_BIT                 0xFFFFFF00
 
 #ifdef _APPLE_
-#define TWO_POW_31_RECIP    	    0x1.0fp-31f
-#define TWO_POW_31_RECIP_DOUBLE	    0x1.0fp-31
+#define TWO_POW_31_RECIP            0x1.0fp-31f
+#define TWO_POW_31_RECIP_DOUBLE     0x1.0fp-31
 #else
-#define TWO_POW_31_RECIP    	    0.000000000465661287f
-#define TWO_POW_31_RECIP_DOUBLE	    0.00000000046566128730773925
+#define TWO_POW_31_RECIP            0.000000000465661287f
+#define TWO_POW_31_RECIP_DOUBLE     0.00000000046566128730773925
 #endif
 
 t_symbol *ps_buffer;
@@ -71,11 +71,12 @@ t_symbol *ps_ibuffer;
 
 enum {
     
-    PCM_FLOAT    = 0,
+    PCM_FLOAT     = 0,
     PCM_INT_16    = 2,
     PCM_INT_24    = 3,
     PCM_INT_32    = 4,
     
 };
 
-#endif	    /* _IBUFFER_ */
+#endif        /* _IBUFFER_ */
+
