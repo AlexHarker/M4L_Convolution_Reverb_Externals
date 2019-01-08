@@ -69,6 +69,7 @@
 		B1D996400A4BB03700CE1530 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
 		B82801D115AAF97000D2B4F0 /* HIRT_Buffer_Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HIRT_Buffer_Access.h; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.h; sourceTree = "<group>"; };
 		B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = HIRT_Buffer_Access.c; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.c; sourceTree = "<group>"; };
+		B8782D2621E4E699009A13F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B890395F13CEFB4C0090602F /* irmix~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "irmix~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89EF5DA10EB78D100D86409 /* ibuffer_access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ibuffer_access.c; sourceTree = "<group>"; };
 		B8AE38E71699041D000E00C2 /* AH_VectorOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_VectorOps.h; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */,
+				B8782D2621E4E699009A13F6 /* Info.plist */,
 				08FB77ADFE841716C02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
