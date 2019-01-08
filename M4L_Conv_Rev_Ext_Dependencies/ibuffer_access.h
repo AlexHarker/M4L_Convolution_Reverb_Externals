@@ -78,13 +78,13 @@ t_symbol *ps_lagrange;
 
 
 enum {
-    
+
     INTERP_TYPE_NONE,
     INTERP_TYPE_LIN,
     INTERP_TYPE_CUBIC_BSPLINE,
     INTERP_TYPE_CUBIC_HERMITE,
     INTERP_TYPE_CUBIC_LAGRANGE
-    
+
 };
 
 // Call in main routine to initialise buffer symbols
@@ -168,12 +168,12 @@ void ibuffer_double_samps_scalar_cubic_lagrange(void *samps, double *out, AH_SIn
 static __inline void *ibuffer_get_ptr(t_symbol *s) FORCE_INLINE_DEFINITION
 {
     t_object *b;
-    
+
     if (!s)
         return 0;
-    
+
     b = s->s_thing;
-    
+
     if (b && (ob_sym(b) == ps_ibuffer || ob_sym(b) == ps_buffer))
         return b;
     else
@@ -185,7 +185,7 @@ static __inline long ibuffer_info(void *thebuffer, void **samples, AH_SIntPtr *l
 {
     if (!thebuffer)
         return 0;
-    
+
     if (ob_sym(thebuffer) == ps_buffer)
     {
         t_buffer *buffer = thebuffer;
@@ -254,24 +254,24 @@ static __inline void ibuffer_decrement_inuse(void *thebuffer) FORCE_INLINE_DEFIN
 static __inline float ibuffer_float_get_samp(void *samps, AH_SIntPtr offset, long n_chans, long chan, long format) FORCE_INLINE_DEFINITION
 {
     AH_UInt32 sampleint;
-    
+
     switch (format)
     {
         case PCM_INT_16:
             sampleint = ((* (AH_UInt16 *) (((AH_UInt16 *) samps) + chan + (offset * n_chans) ) ) << 16) & MASK_16_BIT;
             return (float) *((AH_SInt32 *) &sampleint) * TWO_POW_31_RECIP;
-            
+
         case PCM_INT_24:
             sampleint = * ( (AH_UInt32 *) ( ((AH_UInt8 *) samps) + (3 * (chan + (offset * n_chans))) - 1 )) & MASK_24_BIT;
             return (float) *((AH_SInt32 *) &sampleint) * TWO_POW_31_RECIP;
-            
+
         case PCM_INT_32:
             return (float) ( *( ((AH_SInt32 *) samps) + chan + (offset * n_chans) ) ) * TWO_POW_31_RECIP;
-            
+
         case PCM_FLOAT:
             return *( ((float *) samps) + chan + (offset * n_chans) );
     }
-    
+
     return 0.f;
 }
 
@@ -279,24 +279,24 @@ static __inline float ibuffer_float_get_samp(void *samps, AH_SIntPtr offset, lon
 static __inline double ibuffer_double_get_samp(void *samps, AH_SIntPtr offset, long n_chans, long chan, long format) FORCE_INLINE_DEFINITION
 {
     AH_UInt32 sampleint;
-    
+
     switch (format)
     {
         case PCM_INT_16:
             sampleint = ((* (AH_UInt16 *) (((AH_UInt16 *) samps) + chan + (offset * n_chans) ) ) << 16) & MASK_16_BIT;
             return (double) *((AH_SInt32 *) &sampleint) * TWO_POW_31_RECIP_DOUBLE;
-            
+
         case PCM_INT_24:
             sampleint = * ( (AH_UInt32 *) ( ((AH_UInt8 *) samps) + (3 * (chan + (offset * n_chans))) - 1 )) & MASK_24_BIT;
             return (double) *((AH_SInt32 *) &sampleint) * TWO_POW_31_RECIP_DOUBLE;
-            
+
         case PCM_INT_32:
             return (double) ( *( ((AH_SInt32 *) samps) + chan + (offset * n_chans) ) ) * TWO_POW_31_RECIP_DOUBLE;
-            
+
         case PCM_FLOAT:
             return (double) *( ((float *) samps) + chan + (offset * n_chans) );
     }
-    
+
     return 0.0;
 }
 
@@ -309,22 +309,22 @@ static __inline double ibuffer_double_get_samp(void *samps, AH_SIntPtr offset, l
 static __inline void *ibuffer_offset(void *samps, AH_SIntPtr offset, long n_chans, long format) FORCE_INLINE_DEFINITION
 {
     AH_SInt8 *samps_temp = samps;
-    
+
     switch (format)
     {
         case PCM_INT_16:
             return samps_temp + (offset * 2 * n_chans);
-            
+
         case PCM_INT_24:
             return samps_temp + (offset * 3 * n_chans);
-            
+
         case PCM_INT_32:
             return samps_temp + (offset * 4 * n_chans);
-            
+
         case PCM_FLOAT:
             return samps_temp + (offset * 4 * n_chans);
     }
-    
+
     return 0;
 }
 
@@ -338,10 +338,10 @@ static __inline void ibuffer_preprocess_offsets(AH_SIntPtr *offsets, AH_SIntPtr 
 {
     AH_SIntPtr i;
     long mul = n_chans;
-    
+
     if (format == PCM_INT_24)
         mul *= 3;
-    
+
     if (mul != 1)
     {
         for (i = 0; i < n_samps; i++)
