@@ -30,21 +30,21 @@ typedef struct _ibuffer
 {
     t_pxobject x_obj;
     
-    t_symbol *name;            // the current name of this ibuffer~
+    t_symbol *name;             // the current name of this ibuffer~
     
-    void *thebuffer;          // where the memory starts (including zero padding)
-    void *samples;            // where the samples start
+    void *thebuffer;            // where the memory starts (including zero padding)
+    void *samples;              // where the samples start
     
-    double sr;                // sample rate of ibuffer~
+    double sr;                  // sample rate of ibuffer~
     
-    AH_SIntPtr frames;        // number of frames (N.B. - could be very large under 64bit platforms - hence the pointer sized integer - signed for backwards compatibility)
-    long channels;            // number of channels
-    long format;              // sample format
+    AH_SIntPtr frames;          // number of frames (N.B. - could be very large under 64bit platforms - hence the pointer sized integer - signed for backwards compatibility)
+    long channels;              // number of channels
+    long format;                // sample format
     
-    t_int32_atomic valid;     // set to 0 when loading / unable to load
-    t_int32_atomic inuse;     // count for num objects currently using this ibuffer~
+    t_int32_atomic valid;       // set to 0 when loading / unable to load
+    t_int32_atomic inuse;       // count for num objects currently using this ibuffer~
     
-    void *bang_out;           // bangs on load
+    void *bang_out;             // bangs on load
     
 } t_ibuffer;
 
