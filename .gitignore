@@ -14,6 +14,7 @@ CVS/
 *.sln.docstates
 *.db
 *.ipch
+.vs/
 
 # XCode
 
