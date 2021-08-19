@@ -259,7 +259,7 @@ void irmix_mix_internal(t_irmix *x, t_symbol *sym, short argc, t_atom *argv)
 
     // Copy out to buffer
 
-    auto error = buffer_write((t_object *)x, target, accum.get(), max_length, x->write_chan - 1, x->resize, sample_rate, 1.);
+    auto error = buffer_write((t_object *)x, target, accum.get(), max_length, x->write_chan - 1, static_cast<long>(x->resize), sample_rate, 1.);
 
     if (!error)
         outlet_bang(x->process_done);

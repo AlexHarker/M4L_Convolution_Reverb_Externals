@@ -253,11 +253,11 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
 
     // Write to output(s)
 
-    auto error = buffer_write((t_object *)x, target1, output1, length1, x->write_chan - 1, x->resize, sample_rate1, 1);
+    auto error = buffer_write((t_object *)x, target1, output1, length1, x->write_chan - 1, static_cast<long>(x->resize), sample_rate1, 1);
 
     if (!error && source2)
     {
-        error = buffer_write((t_object *)x, target2, output2, length2, x->write_chan - 1, x->resize, sample_rate2, 1);
+        error = buffer_write((t_object *)x, target2, output2, length2, x->write_chan - 1, static_cast<long>(x->resize), sample_rate2, 1);
     }
 
     if (!error)

@@ -221,7 +221,7 @@ void ircropfade_process_internal(t_ircropfade *x, t_symbol *sym, short argc, t_a
 
     // Copy out to buffer
 
-    auto error = buffer_write((t_object *)x, target, temp2.get(), final_length, x->write_chan - 1, x->resize, sample_rate, 1.);
+    auto error = buffer_write((t_object *)x, target, temp2.get(), final_length, x->write_chan - 1, static_cast<long>(x->resize), sample_rate, 1.);
 
     if (!error)
         outlet_bang(x->process_done);

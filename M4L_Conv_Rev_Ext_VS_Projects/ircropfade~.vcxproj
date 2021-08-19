@@ -19,14 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Max6_support\c74support\max-includes\common\dllmain_win.c" />
-    <ClCompile Include="..\M4L_Conv_Rev_Ext_Common\HIRT_Buffer_Access.c" />
-    <ClCompile Include="..\M4L_Conv_Rev_Ext_Dependencies\ibuffer_access.c" />
-    <ClCompile Include="..\M4L_Conv_Rev_Ext_Objects\ircropfade~.c" />
+    <ClCompile Include="..\M4L_Conv_Rev_Ext_Common\HIRT_Buffer_Access.cpp" />
+    <ClCompile Include="..\M4L_Conv_Rev_Ext_Dependencies\ibuffer_access.cpp" />
+    <ClCompile Include="..\M4L_Conv_Rev_Ext_Objects\ircropfade~.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\M4L_Conv_Rev_Ext_Common\HIRT_Buffer_Access.h" />
-    <ClInclude Include="..\M4L_Conv_Rev_Ext_Dependencies\ibuffer_access.h" />
+    <ClInclude Include="..\M4L_Conv_Rev_Ext_Common\HIRT_Buffer_Access.hpp" />
+    <ClInclude Include="..\M4L_Conv_Rev_Ext_Dependencies\ibuffer_access.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>ircropfade~</ProjectName>
