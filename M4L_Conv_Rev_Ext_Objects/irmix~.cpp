@@ -3,14 +3,14 @@
 #include <ext_obex.h>
 #include <z_dsp.h>
 
-#include <HIRT_Buffer_Access.h>
-#include <AH_Types.h>
+#include <HIRT_Memory.hpp>
+#include <HIRT_Buffer_Access.hpp>
 
 
-void *this_class;
+t_class *this_class;
 
 
-typedef struct _irmix
+struct t_irmix
 {
     t_pxobject x_obj;
 
@@ -23,8 +23,7 @@ typedef struct _irmix
     // Bang Outlet
 
     void *process_done;
-
-} t_irmix;
+};
 
 
 void *irmix_new(t_symbol *s, short argc, t_atom *argv);
@@ -35,7 +34,7 @@ void irmix_mix(t_irmix *x, t_symbol *sym, long argc, t_atom *argv);
 void irmix_mix_internal(t_irmix *x, t_symbol *sym, short argc, t_atom *argv);
 
 
-int main(void)
+int C74_EXPORT main()
 {
     this_class = class_new ("irmix~",
                             (method) irmix_new,
@@ -66,8 +65,6 @@ int main(void)
 
     class_register(CLASS_BOX, this_class);
 
-    buffer_access_init();
-
     return 0;
 }
 
@@ -84,7 +81,7 @@ void *irmix_new(t_symbol *s, short argc, t_atom *argv)
 
     attr_args_process(x, argc, argv);
 
-    return(x);
+    return x;
 }
 
 
@@ -111,19 +108,12 @@ long irmix_check_number(t_atom *a)
 }
 
 
-short irmix_params(t_irmix *x, t_symbol **in_bufs, t_atom_long *offsets, double *gains, AH_SIntPtr *lengths, short argc, t_atom *argv, short max_bufs, AH_SIntPtr *max_len_ret, double *sr_ret)
+short irmix_params(t_irmix *x, t_symbol **in_bufs, t_atom_long *offsets, double *gains, t_ptr_int *lengths, short argc, t_atom *argv, short max_bufs, t_ptr_int *max_len_ret, double *sr_ret)
 {
-    AH_SIntPtr max_length = 0;
-    AH_SIntPtr new_length;
+    t_ptr_int max_length = 0;
+    double sample_rate = 0.0;
 
-    double sample_rate = 0;
-    double new_sample_rate;
-    double gain;
-
-    t_symbol *buffer;
-    t_atom_long offset;
     short i, j;
-
 
     if (argc > max_bufs)
         argc = max_bufs;
@@ -136,8 +126,8 @@ short irmix_params(t_irmix *x, t_symbol **in_bufs, t_atom_long *offsets, double 
 
     for (i = 0, j = 0; i < argc; i++, j++)
     {
-        gain = 1.;
-        offset = 0;
+        double gain = 1.0;
+        t_atom_long offset = 0;
 
         if (atom_gettype(argv + i) != A_SYM)
         {
@@ -148,8 +138,8 @@ short irmix_params(t_irmix *x, t_symbol **in_bufs, t_atom_long *offsets, double 
         if (buffer_check((t_object *)x, atom_getsym(argv + i), x->read_chan - 1))
             return 0;
 
-        new_length = buffer_length (atom_getsym(argv + i));
-        new_sample_rate = buffer_sample_rate(atom_getsym(argv + i));
+        t_ptr_int new_length = buffer_length(atom_getsym(argv + i));
+        double new_sample_rate = buffer_sample_rate(atom_getsym(argv + i));
 
         if (new_length == 0)
         {
@@ -157,7 +147,7 @@ short irmix_params(t_irmix *x, t_symbol **in_bufs, t_atom_long *offsets, double 
             return 0;
         }
 
-        buffer = atom_getsym(argv + i);
+        t_symbol *buffer = atom_getsym(argv + i);
 
         if (i < argc && irmix_check_number(argv + i + 1))
             gain = atom_getfloat(argv + ++i);
@@ -205,27 +195,17 @@ void irmix_mix(t_irmix *x, t_symbol *sym, long argc, t_atom *argv)
 
 void irmix_mix_internal(t_irmix *x, t_symbol *sym, short argc, t_atom *argv)
 {
-    float *temp;
-    double *accum;
-
     double gains[1128];
 
     t_symbol *target;
     t_symbol *buffer_names[128];
 
     t_atom_long offsets[128];
-    t_atom_long offset;
 
-    AH_SIntPtr lengths[128];
-
-    AH_SIntPtr num_buffers;
-    AH_SIntPtr max_length;
-    AH_SIntPtr i, j;
-
-    double gain;
+    t_ptr_int lengths[128];
+    t_ptr_int max_length;
+    
     double sample_rate = 0;
-
-    t_buffer_write_error error;
 
     // Check there are some arguments
 
@@ -240,53 +220,46 @@ void irmix_mix_internal(t_irmix *x, t_symbol *sym, short argc, t_atom *argv)
 
     // Check buffers, storing names and lengths +  calculate total / largest length
 
-    num_buffers = irmix_params(x, buffer_names, offsets, gains, lengths, argc, argv, 128, &max_length, &sample_rate);
+    short num_buffers = irmix_params(x, buffer_names, offsets, gains, lengths, argc, argv, 128, &max_length, &sample_rate);
 
     if (!num_buffers)
         return;
 
     // Allocate memory
 
-    temp = (float *) ALIGNED_MALLOC(max_length * (sizeof(float) + sizeof(double)));
-    accum = (double *) (temp + max_length);
+    temp_ptr<float> temp(max_length);
+    temp_ptr<double> accum(max_length);
 
     // Check memory allocation
 
-    if (!temp)
+    if (!temp || !accum)
     {
         object_error((t_object *)x, "could not allocate temporary memory for processing");
-        free(temp);
         return;
     }
 
     // Zero accumulation
 
-    for (j = 0; j < max_length; j++)
-        accum[j] = 0.;
+    for (t_ptr_int j = 0; j < max_length; j++)
+        accum[j] = 0.0;
 
-    // Average
+    // Mix
 
-    for (i = 0; i < num_buffers; i++)
+    for (short i = 0; i < num_buffers; i++)
     {
-        AH_SIntPtr read_length = buffer_read(buffer_names[i], x->read_chan - 1, (float *) temp, max_length);
-
-        offset = offsets[i];
-        gain = gains[i];
+        t_ptr_int read_length = buffer_read(buffer_names[i], x->read_chan - 1, temp.get(), max_length);
+        t_atom_long offset = offsets[i];
+        double gain = gains[i];
 
         // Accumulate
 
-        for (j = 0; j < read_length; j++)
+        for (t_ptr_int j = 0; j < read_length; j++)
             accum[j + offset] += temp[j] * gain;
     }
 
     // Copy out to buffer
 
-    error = buffer_write(target, accum, max_length, x->write_chan - 1, x->resize, sample_rate, 1.);
-    buffer_write_error((t_object *)x, target, error);
-
-    // Free Resources
-
-    ALIGNED_FREE(temp);
+    auto error = buffer_write((t_object *)x, target, accum.get(), max_length, x->write_chan - 1, x->resize, sample_rate, 1.);
 
     if (!error)
         outlet_bang(x->process_done);

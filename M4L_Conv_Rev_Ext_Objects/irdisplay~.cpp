@@ -3,15 +3,16 @@
 #include <ext_obex.h>
 #include <z_dsp.h>
 
-#include <HIRT_Buffer_Access.h>
-#include <AH_Win_Math.h>
-#include <AH_Types.h>
+#include <HIRT_Memory.hpp>
+#include <HIRT_Buffer_Access.hpp>
+
+#include <algorithm>
 
 
-void *this_class;
+t_class *this_class;
 
 
-typedef struct _irdisplay
+struct t_irdisplay
 {
     t_pxobject x_obj;
 
@@ -24,8 +25,7 @@ typedef struct _irdisplay
     // Bang Outlet
 
     void *process_done;
-
-} t_irdisplay;
+};
 
 
 void *irdisplay_new();
@@ -40,7 +40,7 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
 double pow_table[8194];
 
 
-int main(void)
+int C74_EXPORT main()
 {
     long i;
 
@@ -71,8 +71,6 @@ int main(void)
 
     class_register(CLASS_BOX, this_class);
 
-    buffer_access_init();
-
     // Set up static table for fast power approximation
 
     for (i = 0; i < 8194; i++)
@@ -92,7 +90,7 @@ void *irdisplay_new()
     x->write_chan = 1;
     x->resize = 1;
 
-    return(x);
+    return x;
 }
 
 
@@ -112,19 +110,15 @@ void irdisplay_assist(t_irdisplay *x, void *b, long m, long a, char *s)
 
 double power_scale(double val)
 {
-    double lo, hi, fract;
-    long idx;
-
     val = val * 4096.0 + 4096.0;
-
     val = val < 0 ? 0 : val;
     val = val > 8193.0 ? 8193.0 : val;
 
-    idx = (long) val;
-    fract = val - idx;
+    long idx = static_cast<long>(val);
+    double fract = val - idx;
 
-    lo = pow_table[idx];
-    hi = pow_table[idx + 1];
+    double lo = pow_table[idx];
+    double hi = pow_table[idx + 1];
 
     return lo - fract * (lo - hi);
 }
@@ -140,29 +134,20 @@ void irdisplay_process(t_irdisplay *x, t_symbol *sym, long argc, t_atom *argv)
 
 void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_atom *argv)
 {
-    t_symbol *target1 = 0;
-    t_symbol *target2 = 0;
-    t_symbol *source1 = 0;
-    t_symbol *source2 = 0;
+    t_symbol *target2 = nullptr;
+    t_symbol *source2 = nullptr;
 
-    double source_vol1 = 1.;
-    double source_vol2 = 1.;
+    double source_vol1 = 1.0;
+    double source_vol2 = 1.0;
 
-    double *output1, *output2;
-    float *temp1, *temp2;
+    double sample_rate1 = 0.0;
+    double sample_rate2 = 0.0;
+    float max = 0.f;
+    float max1 = 0.f;
+    float max2 = 0.f;
 
-    double sample_rate1;
-    double sample_rate2 = 0;
-    float val;
-    float max;
-    float max1 = 0;
-    float max2 = 0;
-
-    t_buffer_write_error error;
-
-    AH_SIntPtr length1 = 0;
-    AH_SIntPtr length2 = 0;
-    AH_SIntPtr i;
+    t_ptr_int length1 = 0;
+    t_ptr_int length2 = 0;
 
     // Check arguments
 
@@ -172,9 +157,9 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
         return;
     }
 
-    target1 = atom_getsym(argv++);
+    t_symbol *target1 = atom_getsym(argv++);
     argc--;
-    source1 = atom_getsym(argv++);
+    t_symbol *source1 = atom_getsym(argv++);
     argc--;
 
     if (argc && atom_gettype(argv) == A_SYM)
@@ -210,9 +195,9 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
 
     if (buffer_check((t_object *) x, source1, read_chan) || !source1)
         return;
+    
     length1 = buffer_length(source1);
     sample_rate1 = buffer_sample_rate(source1);
-
 
     if (source2)
     {
@@ -222,17 +207,19 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
         sample_rate2 = buffer_sample_rate(source2);
     }
 
-    output1 = (double *) malloc((length1 + length2) * (sizeof(double) + sizeof(float)));
+    temp_ptr<double> temp_d(length1 + length2);
+    temp_ptr<float>  temp_f(length1 + length2);
 
-    if (!output1)
+    if (!temp_d || !temp_f)
     {
         object_error((t_object *)x, "could not allocate temporary memory for processing");
         return;
     }
 
-    temp1 = (float *) (output1 + length1);
-    output2 = (double *) (temp1 + length1);
-    temp2 = (float *) (output2 + length2);
+    double *output1 = temp_d.get();
+    double *output2 = output1 + length1;
+    float *temp1 = temp_f.get();
+    float *temp2 = temp1 + length2;
 
     // Read buffers
 
@@ -242,47 +229,36 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
 
     // Find maximums and calculate scaling
 
-    for (i = 0, max1 = 0.; i < length1; i++)
-    {
-        val = fabsf(temp1[i]);
-        max1 = (val >  max1) ? val : max1;
-    }
+    for (t_ptr_int i = 0; i < length1; i++)
+        max1 = std::max(fabsf(temp1[i]), max1);
 
     if (source2)
     {
-        for (i = 0, max2 = 0; i < length2; i++)
-        {
-            val = fabsf(temp2[i]);
-            max2 = (val >  max2) ? val : max2;
-        }
+        for (t_ptr_int i = 0; i < length2; i++)
+            max2 = std::max(fabsf(temp2[i]), max2);
     }
 
-    max = (float) (max1 * source_vol1 > max2 * source_vol2 ? max1  * source_vol1 : max2 * source_vol2);
+    max = static_cast<float>(max1 * source_vol1 > max2 * source_vol2 ? max1  * source_vol1 : max2 * source_vol2);
     max = 1.f / max;
     source_vol1 *= max;
     source_vol2 *= max;
 
     // Map to new scaling
 
-    for (i = 0; i < length1; i++)
+    for (t_ptr_int i = 0; i < length1; i++)
         output1[i] = power_scale(temp1[i] * source_vol1);
     if (source2)
-        for (i = 0; i < length2; i++)
+        for (t_ptr_int i = 0; i < length2; i++)
             output2[i] = power_scale(temp2[i] * source_vol2);
 
     // Write to output(s)
 
-    error = buffer_write(target1, output1, length1, x->write_chan - 1, x->resize, sample_rate1, 1);
-    buffer_write_error((t_object *)x, target1, error);
-    if (source2)
+    auto error = buffer_write((t_object *)x, target1, output1, length1, x->write_chan - 1, x->resize, sample_rate1, 1);
+
+    if (!error && source2)
     {
-        error = buffer_write(target2, output2, length2, x->write_chan - 1, x->resize, sample_rate2, 1);
-        buffer_write_error((t_object *)x, target2, error);
+        error = buffer_write((t_object *)x, target2, output2, length2, x->write_chan - 1, x->resize, sample_rate2, 1);
     }
-
-    // Free Resources
-
-    free(output1);
 
     if (!error)
         outlet_bang(x->process_done);

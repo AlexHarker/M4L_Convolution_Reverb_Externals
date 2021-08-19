@@ -23,21 +23,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.c in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */; };
-		B890395213CEFB4C0090602F /* ibuffer_access.c in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.c */; };
-		B890395813CEFB4C0090602F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
-		B890395913CEFB4C0090602F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D996400A4BB03700CE1530 /* Accelerate.framework */; };
-		B8C5430C15BDFC600061DF6C /* irmix~.c in Sources */ = {isa = PBXBuildFile; fileRef = B8C5430B15BDFC600061DF6C /* irmix~.c */; };
-		B8C5434815BDFDA50061DF6C /* ibuffer_access.c in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.c */; };
-		B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.c in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */; };
-		B8C5434E15BDFDA50061DF6C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
-		B8C5434F15BDFDA50061DF6C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D996400A4BB03700CE1530 /* Accelerate.framework */; };
-		B8C5437815BDFDED0061DF6C /* irdisplay~.c in Sources */ = {isa = PBXBuildFile; fileRef = B8C5437715BDFDED0061DF6C /* irdisplay~.c */; };
-		B8C5439615BE00540061DF6C /* ibuffer_access.c in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.c */; };
-		B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.c in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */; };
-		B8C5439C15BE00540061DF6C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
-		B8C5439D15BE00540061DF6C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D996400A4BB03700CE1530 /* Accelerate.framework */; };
-		B8C543A615BE00850061DF6C /* ircropfade~.c in Sources */ = {isa = PBXBuildFile; fileRef = B8C543A515BE00850061DF6C /* ircropfade~.c */; };
+		B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
+		B890395213CEFB4C0090602F /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
+		B8C5430C15BDFC600061DF6C /* irmix~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C5430B15BDFC600061DF6C /* irmix~.cpp */; };
+		B8C5434815BDFDA50061DF6C /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
+		B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
+		B8C5437815BDFDED0061DF6C /* irdisplay~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C5437715BDFDED0061DF6C /* irdisplay~.cpp */; };
+		B8C5439615BE00540061DF6C /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
+		B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
+		B8C543A615BE00850061DF6C /* ircropfade~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C543A515BE00850061DF6C /* ircropfade~.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,23 +59,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		B1D996400A4BB03700CE1530 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
-		B82801D115AAF97000D2B4F0 /* HIRT_Buffer_Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HIRT_Buffer_Access.h; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.h; sourceTree = "<group>"; };
-		B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = HIRT_Buffer_Access.c; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.c; sourceTree = "<group>"; };
+		B827F6BD26C31E9400C46575 /* HIRT_Memory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = HIRT_Memory.hpp; path = M4L_Conv_Rev_Ext_Common/HIRT_Memory.hpp; sourceTree = "<group>"; };
+		B82801D115AAF97000D2B4F0 /* HIRT_Buffer_Access.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HIRT_Buffer_Access.hpp; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.hpp; sourceTree = "<group>"; };
+		B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HIRT_Buffer_Access.cpp; path = M4L_Conv_Rev_Ext_Common/HIRT_Buffer_Access.cpp; sourceTree = "<group>"; };
 		B8782D2621E4E699009A13F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B890395F13CEFB4C0090602F /* irmix~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "irmix~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B89EF5DA10EB78D100D86409 /* ibuffer_access.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ibuffer_access.c; sourceTree = "<group>"; };
-		B8AE38E71699041D000E00C2 /* AH_VectorOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_VectorOps.h; sourceTree = "<group>"; };
-		B8AE38E91699041D000E00C2 /* AH_Win_Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Win_Math.h; sourceTree = "<group>"; };
-		B8AE38EA1699041D000E00C2 /* ibuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ibuffer.h; sourceTree = "<group>"; };
-		B8AE38EC1699041D000E00C2 /* ibuffer_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ibuffer_access.h; sourceTree = "<group>"; };
-		B8BF5244169A17AA00989F66 /* AH_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AH_Types.h; sourceTree = "<group>"; };
-		B8C5430B15BDFC600061DF6C /* irmix~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "irmix~.c"; path = "M4L_Conv_Rev_Ext_Objects/irmix~.c"; sourceTree = "<group>"; };
+		B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ibuffer_access.cpp; sourceTree = "<group>"; };
+		B8A7F2A626B5569900BE0A89 /* MaxBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaxBuffer.h; sourceTree = "<group>"; };
+		B8A7F2A726B5569900BE0A89 /* SIMDSupport.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SIMDSupport.hpp; sourceTree = "<group>"; };
+		B8A7F2A826B5569900BE0A89 /* Interpolation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interpolation.hpp; sourceTree = "<group>"; };
+		B8A7F2A926B5569900BE0A89 /* TableReader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TableReader.hpp; sourceTree = "<group>"; };
+		B8AE38EA1699041D000E00C2 /* ibuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ibuffer.hpp; sourceTree = "<group>"; };
+		B8AE38EC1699041D000E00C2 /* ibuffer_access.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ibuffer_access.hpp; sourceTree = "<group>"; };
+		B8C5430B15BDFC600061DF6C /* irmix~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "irmix~.cpp"; path = "M4L_Conv_Rev_Ext_Objects/irmix~.cpp"; sourceTree = "<group>"; };
 		B8C5435515BDFDA50061DF6C /* irdisplay~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "irdisplay~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8C5437715BDFDED0061DF6C /* irdisplay~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "irdisplay~.c"; path = "M4L_Conv_Rev_Ext_Objects/irdisplay~.c"; sourceTree = "<group>"; };
+		B8C5437715BDFDED0061DF6C /* irdisplay~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "irdisplay~.cpp"; path = "M4L_Conv_Rev_Ext_Objects/irdisplay~.cpp"; sourceTree = "<group>"; };
 		B8C543A315BE00540061DF6C /* ircropfade~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ircropfade~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8C543A515BE00850061DF6C /* ircropfade~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "ircropfade~.c"; path = "M4L_Conv_Rev_Ext_Objects/ircropfade~.c"; sourceTree = "<group>"; };
+		B8C543A515BE00850061DF6C /* ircropfade~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "ircropfade~.cpp"; path = "M4L_Conv_Rev_Ext_Objects/ircropfade~.cpp"; sourceTree = "<group>"; };
 		B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config_M4LCRE_Mac.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,8 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890395813CEFB4C0090602F /* Carbon.framework in Frameworks */,
-				B890395913CEFB4C0090602F /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,8 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5434E15BDFDA50061DF6C /* Carbon.framework in Frameworks */,
-				B8C5434F15BDFDA50061DF6C /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5439C15BE00540061DF6C /* Carbon.framework in Frameworks */,
-				B8C5439D15BE00540061DF6C /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,27 +110,9 @@
 				B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */,
 				B8782D2621E4E699009A13F6 /* Info.plist */,
 				08FB77ADFE841716C02AAC07 /* Source */,
-				089C167CFE841241C02AAC07 /* Resources */,
-				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
 			);
 			name = "plus~";
-			sourceTree = "<group>";
-		};
-		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				B1D996400A4BB03700CE1530 /* Accelerate.framework */,
-				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
-			);
-			name = "External Frameworks and Libraries";
-			sourceTree = "<group>";
-		};
-		089C167CFE841241C02AAC07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		08FB77ADFE841716C02AAC07 /* Source */ = {
@@ -168,12 +138,13 @@
 		B8AE38E31699041D000E00C2 /* M4L Conv Rev Ext Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				B8BF5244169A17AA00989F66 /* AH_Types.h */,
-				B8AE38E71699041D000E00C2 /* AH_VectorOps.h */,
-				B8AE38E91699041D000E00C2 /* AH_Win_Math.h */,
-				B8AE38EA1699041D000E00C2 /* ibuffer.h */,
-				B89EF5DA10EB78D100D86409 /* ibuffer_access.c */,
-				B8AE38EC1699041D000E00C2 /* ibuffer_access.h */,
+				B8AE38EA1699041D000E00C2 /* ibuffer.hpp */,
+				B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */,
+				B8AE38EC1699041D000E00C2 /* ibuffer_access.hpp */,
+				B8A7F2A826B5569900BE0A89 /* Interpolation.hpp */,
+				B8A7F2A626B5569900BE0A89 /* MaxBuffer.h */,
+				B8A7F2A726B5569900BE0A89 /* SIMDSupport.hpp */,
+				B8A7F2A926B5569900BE0A89 /* TableReader.hpp */,
 			);
 			name = "M4L Conv Rev Ext Dependencies";
 			path = M4L_Conv_Rev_Ext_Dependencies;
@@ -182,8 +153,9 @@
 		B8AE38EF1699043B000E00C2 /* M4L Conv Rev Ext Common */ = {
 			isa = PBXGroup;
 			children = (
-				B82801D115AAF97000D2B4F0 /* HIRT_Buffer_Access.h */,
-				B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.c */,
+				B827F6BD26C31E9400C46575 /* HIRT_Memory.hpp */,
+				B82801D115AAF97000D2B4F0 /* HIRT_Buffer_Access.hpp */,
+				B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */,
 			);
 			name = "M4L Conv Rev Ext Common";
 			sourceTree = "<group>";
@@ -191,9 +163,9 @@
 		B8AE38F016990463000E00C2 /* M4L Conv Rev Ext Objects */ = {
 			isa = PBXGroup;
 			children = (
-				B8C543A515BE00850061DF6C /* ircropfade~.c */,
-				B8C5437715BDFDED0061DF6C /* irdisplay~.c */,
-				B8C5430B15BDFC600061DF6C /* irmix~.c */,
+				B8C543A515BE00850061DF6C /* ircropfade~.cpp */,
+				B8C5437715BDFDED0061DF6C /* irdisplay~.cpp */,
+				B8C5430B15BDFC600061DF6C /* irmix~.cpp */,
 			);
 			name = "M4L Conv Rev Ext Objects";
 			sourceTree = "<group>";
@@ -367,9 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890395213CEFB4C0090602F /* ibuffer_access.c in Sources */,
-				B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.c in Sources */,
-				B8C5430C15BDFC600061DF6C /* irmix~.c in Sources */,
+				B890395213CEFB4C0090602F /* ibuffer_access.cpp in Sources */,
+				B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.cpp in Sources */,
+				B8C5430C15BDFC600061DF6C /* irmix~.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,9 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5434815BDFDA50061DF6C /* ibuffer_access.c in Sources */,
-				B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.c in Sources */,
-				B8C5437815BDFDED0061DF6C /* irdisplay~.c in Sources */,
+				B8C5434815BDFDA50061DF6C /* ibuffer_access.cpp in Sources */,
+				B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.cpp in Sources */,
+				B8C5437815BDFDED0061DF6C /* irdisplay~.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,9 +359,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5439615BE00540061DF6C /* ibuffer_access.c in Sources */,
-				B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.c in Sources */,
-				B8C543A615BE00850061DF6C /* ircropfade~.c in Sources */,
+				B8C5439615BE00540061DF6C /* ibuffer_access.cpp in Sources */,
+				B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.cpp in Sources */,
+				B8C543A615BE00850061DF6C /* ircropfade~.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
