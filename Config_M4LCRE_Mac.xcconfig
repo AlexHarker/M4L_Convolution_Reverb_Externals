@@ -5,7 +5,7 @@ PRODUCT_NAME = $TARGET_NAME
 // Paths
 
 C74SUPPORT = $(SRCROOT)/../max-sdk-base/c74support
-HEADER_SEARCH_PATHS = "$(SRCROOT)/HISSTools_IR_Toolbox_Dependencies/" "$(SRCROOT)/HISSTools_IR_Toolbox_Common/" "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(C74SUPPORT)/jit-includes"
+HEADER_SEARCH_PATHS = "$(SRCROOT)/M4L_Conv_Rev_Ext_Dependencies/" "$(SRCROOT)/M4L_Conv_Rev_Ext_Common/" "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(C74SUPPORT)/jit-includes"
 FRAMEWORK_SEARCH_PATHS = "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(C74SUPPORT)/jit-includes"
 
 // Special Files
@@ -24,10 +24,10 @@ CLANG_CXX_LIBRARY = libc++
 
 // This matches with Cycling's maximum backward compatibility
 
-BASE_SDK = 10.7
-MACOSX_DEPLOYMENT_TARGET = 10.7
+BASE_SDK = 10.11
+MACOSX_DEPLOYMENT_TARGET = 10.11
 
-// Build a Universal Binary with 32/64 bit versions
+// Build a Universal Binary
 
 ARCHS = x86_64 arm64
 
