@@ -219,7 +219,7 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
     double *output1 = temp_d.get();
     double *output2 = output1 + length1;
     float *temp1 = temp_f.get();
-    float *temp2 = temp1 + length2;
+    float *temp2 = temp1 + length1;
 
     // Read buffers
 
