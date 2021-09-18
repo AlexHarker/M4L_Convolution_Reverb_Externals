@@ -389,6 +389,7 @@
 		0FFBC545097463A900D78707 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_ALTIVEC_EXTENSIONS = YES;
 			};
 			name = Development;
@@ -396,6 +397,7 @@
 		0FFBC546097463A900D78707 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_ALTIVEC_EXTENSIONS = YES;
 			};
 			name = Deployment;
@@ -403,6 +405,7 @@
 		0FFBC547097463A900D78707 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_ALTIVEC_EXTENSIONS = YES;
 			};
 			name = Default;
