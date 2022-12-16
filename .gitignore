@@ -32,7 +32,9 @@ CVS/
 
 xcuserdata/
 
-# Windows Build Directories
+# Build Directories
 
-HissTools_Builds/
-HissTools_Intermediate/
+build-win/
+build-mac/
+build-intermediate/
+

@@ -3,10 +3,10 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir>../../Builds/</OutDir>
+    <OutDir>../build-win/</OutDir>
   </PropertyGroup>
   <PropertyGroup>
-    <IntDir>../../Intermediate/$(ProjectName)/</IntDir>
+    <IntDir>../build-intermediate/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <PropertyGroup>
     <TargetExt>.mxe64</TargetExt>
