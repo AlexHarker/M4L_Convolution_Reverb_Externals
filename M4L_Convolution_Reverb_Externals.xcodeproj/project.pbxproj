@@ -266,13 +266,14 @@
 			};
 			buildConfigurationList = 0FFBC544097463A900D78707 /* Build configuration list for PBXProject "M4L_Convolution_Reverb_Externals" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				fr,
+				en,
+				de,
+				ja,
+				Base,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* plus~ */;
 			projectDirPath = "";
@@ -390,7 +391,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Development;
 		};
@@ -398,7 +400,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Deployment;
 		};
@@ -406,16 +409,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Default;
 		};
 		B81AF9E8143A1BBB0014A77A /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "All Correction Tools";
 			};
 			name = Development;
@@ -423,11 +424,9 @@
 		B81AF9E9143A1BBB0014A77A /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "All Correction Tools";
-				ZERO_LINK = NO;
 			};
 			name = Deployment;
 		};
@@ -442,8 +441,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -456,7 +453,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -468,7 +464,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
@@ -478,8 +473,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -492,7 +485,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -504,7 +496,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
@@ -514,8 +505,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -528,7 +517,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -540,7 +528,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
