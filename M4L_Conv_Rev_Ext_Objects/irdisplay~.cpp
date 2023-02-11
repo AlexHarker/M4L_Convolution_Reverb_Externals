@@ -238,7 +238,7 @@ void irdisplay_process_internal(t_irdisplay *x, t_symbol *sym, short argc, t_ato
             max2 = std::max(fabsf(temp2[i]), max2);
     }
 
-    max = static_cast<float>(max1 * source_vol1 > max2 * source_vol2 ? max1  * source_vol1 : max2 * source_vol2);
+    max = static_cast<float>(std::max(max1 * source_vol1, max2 * source_vol2));
     max = 1.f / max;
     source_vol1 *= max;
     source_vol2 *= max;
