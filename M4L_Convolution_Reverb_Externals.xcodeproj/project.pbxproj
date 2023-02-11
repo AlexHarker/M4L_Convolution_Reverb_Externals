@@ -23,15 +23,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
-		B890395213CEFB4C0090602F /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
 		B8C5430C15BDFC600061DF6C /* irmix~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C5430B15BDFC600061DF6C /* irmix~.cpp */; };
-		B8C5434815BDFDA50061DF6C /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
-		B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
 		B8C5437815BDFDED0061DF6C /* irdisplay~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C5437715BDFDED0061DF6C /* irdisplay~.cpp */; };
-		B8C5439615BE00540061DF6C /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
-		B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
 		B8C543A615BE00850061DF6C /* ircropfade~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C543A515BE00850061DF6C /* ircropfade~.cpp */; };
+		B8F225AE2997DFFE00DAC73C /* HIRT_Buffer_Access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82801D215AAF97000D2B4F0 /* HIRT_Buffer_Access.cpp */; };
+		B8F225AF2997E00100DAC73C /* ibuffer_access.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B89EF5DA10EB78D100D86409 /* ibuffer_access.cpp */; };
+		B8F225B32997E01300DAC73C /* libM4L_Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F225A92997DE0600DAC73C /* libM4L_Core.a */; };
+		B8F225B42997E01700DAC73C /* libM4L_Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F225A92997DE0600DAC73C /* libM4L_Core.a */; };
+		B8F225B92997E02000DAC73C /* libM4L_Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F225A92997DE0600DAC73C /* libM4L_Core.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +55,27 @@
 			remoteGlobalIDString = B8C5439015BE00540061DF6C;
 			remoteInfo = "ircropfade~";
 		};
+		B8F225B02997E00E00DAC73C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F225A82997DE0600DAC73C;
+			remoteInfo = M4L_Core;
+		};
+		B8F225B52997E01900DAC73C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F225A82997DE0600DAC73C;
+			remoteInfo = M4L_Core;
+		};
+		B8F225B72997E01C00DAC73C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F225A82997DE0600DAC73C;
+			remoteInfo = M4L_Core;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +97,7 @@
 		B8C543A315BE00540061DF6C /* ircropfade~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ircropfade~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C543A515BE00850061DF6C /* ircropfade~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "ircropfade~.cpp"; path = "M4L_Conv_Rev_Ext_Objects/ircropfade~.cpp"; sourceTree = "<group>"; };
 		B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config_M4LCRE_Mac.xcconfig; sourceTree = "<group>"; };
+		B8F225A92997DE0600DAC73C /* libM4L_Core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libM4L_Core.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F225B32997E01300DAC73C /* libM4L_Core.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,10 +113,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F225B42997E01700DAC73C /* libM4L_Core.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B8C5439915BE00540061DF6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F225B92997E02000DAC73C /* libM4L_Core.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F225A72997DE0600DAC73C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,6 +142,7 @@
 				B8782D2621E4E699009A13F6 /* Info.plist */,
 				08FB77ADFE841716C02AAC07 /* Source */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
+				B8F225B22997E01300DAC73C /* Frameworks */,
 			);
 			name = "plus~";
 			sourceTree = "<group>";
@@ -131,6 +163,7 @@
 				B890395F13CEFB4C0090602F /* irmix~.mxo */,
 				B8C5435515BDFDA50061DF6C /* irdisplay~.mxo */,
 				B8C543A315BE00540061DF6C /* ircropfade~.mxo */,
+				B8F225A92997DE0600DAC73C /* libM4L_Core.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +203,13 @@
 			name = "M4L Conv Rev Ext Objects";
 			sourceTree = "<group>";
 		};
+		B8F225B22997E01300DAC73C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -194,6 +234,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B8F225A52997DE0600DAC73C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -210,6 +257,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B8F225B12997E00E00DAC73C /* PBXTargetDependency */,
 			);
 			name = "irmix~";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -230,6 +278,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B8F225B62997E01900DAC73C /* PBXTargetDependency */,
 			);
 			name = "irdisplay~";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -250,6 +299,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B8F225B82997E01C00DAC73C /* PBXTargetDependency */,
 			);
 			name = "ircropfade~";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -257,12 +307,34 @@
 			productReference = B8C543A315BE00540061DF6C /* ircropfade~.mxo */;
 			productType = "com.apple.product-type.bundle";
 		};
+		B8F225A82997DE0600DAC73C /* M4L_Core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F225AD2997DE0600DAC73C /* Build configuration list for PBXNativeTarget "M4L_Core" */;
+			buildPhases = (
+				B8F225A52997DE0600DAC73C /* Headers */,
+				B8F225A62997DE0600DAC73C /* Sources */,
+				B8F225A72997DE0600DAC73C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = M4L_Core;
+			productName = M4L_Core;
+			productReference = B8F225A92997DE0600DAC73C /* libM4L_Core.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				TargetAttributes = {
+					B8F225A82997DE0600DAC73C = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
 			};
 			buildConfigurationList = 0FFBC544097463A900D78707 /* Build configuration list for PBXProject "M4L_Convolution_Reverb_Externals" */;
 			compatibilityVersion = "Xcode 2.4";
@@ -279,6 +351,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B8F225A82997DE0600DAC73C /* M4L_Core */,
 				B8C5439015BE00540061DF6C /* ircropfade~ */,
 				B8C5434215BDFDA50061DF6C /* irdisplay~ */,
 				B890394C13CEFB4C0090602F /* irmix~ */,
@@ -340,8 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B890395213CEFB4C0090602F /* ibuffer_access.cpp in Sources */,
-				B828027415AAFD1D00D2B4F0 /* HIRT_Buffer_Access.cpp in Sources */,
 				B8C5430C15BDFC600061DF6C /* irmix~.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,8 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5434815BDFDA50061DF6C /* ibuffer_access.cpp in Sources */,
-				B8C5434915BDFDA50061DF6C /* HIRT_Buffer_Access.cpp in Sources */,
 				B8C5437815BDFDED0061DF6C /* irdisplay~.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,9 +429,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C5439615BE00540061DF6C /* ibuffer_access.cpp in Sources */,
-				B8C5439715BE00540061DF6C /* HIRT_Buffer_Access.cpp in Sources */,
 				B8C543A615BE00850061DF6C /* ircropfade~.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F225A62997DE0600DAC73C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F225AE2997DFFE00DAC73C /* HIRT_Buffer_Access.cpp in Sources */,
+				B8F225AF2997E00100DAC73C /* ibuffer_access.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +460,21 @@
 			target = B8C5439015BE00540061DF6C /* ircropfade~ */;
 			targetProxy = B8DA2E3B1694949C00FADAD9 /* PBXContainerItemProxy */;
 		};
+		B8F225B12997E00E00DAC73C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F225A82997DE0600DAC73C /* M4L_Core */;
+			targetProxy = B8F225B02997E00E00DAC73C /* PBXContainerItemProxy */;
+		};
+		B8F225B62997E01900DAC73C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F225A82997DE0600DAC73C /* M4L_Core */;
+			targetProxy = B8F225B52997E01900DAC73C /* PBXContainerItemProxy */;
+		};
+		B8F225B82997E01C00DAC73C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F225A82997DE0600DAC73C /* M4L_Core */;
+			targetProxy = B8F225B72997E01C00DAC73C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -392,6 +483,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Development;
@@ -401,6 +496,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Deployment;
@@ -410,6 +509,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Default;
@@ -473,11 +576,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
 			name = Development;
 		};
@@ -486,9 +585,6 @@
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
 			name = Deployment;
 		};
@@ -496,8 +592,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
 			name = Default;
 		};
@@ -505,11 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
 			name = Development;
 		};
@@ -518,9 +608,6 @@
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 			};
 			name = Deployment;
 		};
@@ -528,8 +615,145 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+			};
+			name = Default;
+		};
+		B8F225AA2997DE0600DAC73C /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Development;
+		};
+		B8F225AB2997DE0600DAC73C /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Deployment;
+		};
+		B8F225AC2997DE0600DAC73C /* Default */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Default;
 		};
@@ -582,6 +806,16 @@
 				B8C543A015BE00540061DF6C /* Development */,
 				B8C543A115BE00540061DF6C /* Deployment */,
 				B8C543A215BE00540061DF6C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		B8F225AD2997DE0600DAC73C /* Build configuration list for PBXNativeTarget "M4L_Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F225AA2997DE0600DAC73C /* Development */,
+				B8F225AB2997DE0600DAC73C /* Deployment */,
+				B8F225AC2997DE0600DAC73C /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
