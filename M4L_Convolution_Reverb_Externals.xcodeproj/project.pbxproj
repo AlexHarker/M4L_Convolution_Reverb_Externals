@@ -630,7 +630,6 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Development;
 		};
@@ -641,7 +640,6 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Deployment;
 		};
@@ -651,7 +649,6 @@
 			buildSettings = {
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Default;
 		};
@@ -659,7 +656,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Development;
 		};
@@ -667,7 +663,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Deployment;
 		};
@@ -675,7 +670,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Default;
 		};
@@ -683,7 +677,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Development;
 		};
@@ -691,7 +684,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Deployment;
 		};
@@ -699,7 +691,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8DA2E73169495A300FADAD9 /* Config_M4LCRE_Mac.xcconfig */;
 			buildSettings = {
-				PRODUCT_BUNDLE_IDENTIFIER = "AHarker.${TARGET_NAME:rfc1034identifier}";
 			};
 			name = Default;
 		};
